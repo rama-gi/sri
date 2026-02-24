@@ -1,6 +1,38 @@
-echo "- - -" 3 > /proc/sys/vm/drop_caches
+echo "- - -" 3 > /proc/sys/vm/drop_caches -->to clear cache
+echo "- - -" > /sys/class/scsi_host/host0/scan  --> to scan disk
  lvs --segment
 echo 1>/sys/class/block/sdc/device/rescan    -->replace disk (sdc) which disk need to recsan
 mv /opt/Tanium /appbin/Tanium -f  --to fourcefully meve
 ln -s /appbin/Tanium /opt/Tanium  --to create soft link
 ln -s src  dest -->-to create hard link
+kill -9 $(lsof | grep '(deleted)' | awk '{print $2}' | sort -u)  -- to kill deleted proces
+sshpass -p 'IWillChangeMeToday872@' ssh ccp-adm@by0hwl "systemctl status chronyd"  -- to check the comnnd output frm jump server
+ps -eo s,user,pid,lstart,pcpu,cmd --sort -lstart| grep ^[RD]  -- to check dead process
+vastool issue:
+/opt/quest/bin/vastool -u myctv -s join -f bayer.cnb  --to join ad
+/opt/quest/bin/preflight --verbose  bayer.cnb
+
+faillog -r -u GOVSJ  - if AD user,we can clear faildlogins
+For local user
+pam_tally2 -u mxtba      -to give access 40login failds -0
+pam_tally2 --user=um_usr--reset -r
+==============================
+Dmesg -t (time) | grep -I <word>
+lvcreate -l 100%VG -n _u01_app_oracle_oradata vgdata -i2  --to create striped valume
+find / -xdev -size +102400 -ls
+
+Disks:
+echo 1>/sys/class/block/sdaa/device/rescan
+lvcreate -i 3 I 512 -L 1000G -n <lvname> <vgname>
+BDCmodvg -lv --> to check disks scsi 
+BDCmodvg -c -g vgname--to scan disk
+Lsof  |grep deleted
+Kill -9 pid
+
+sar -q 1 5 -load avarage
+sar -u 1 5 -cpu
+sar -r 1 5 -ram(memory)
+Top -cpu
+Uptime -load avarage(10-40)
+Grep -I huge /proc/meminfo
+
