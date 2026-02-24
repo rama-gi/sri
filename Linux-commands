@@ -1,2 +1,6 @@
 echo "- - -" 3 > /proc/sys/vm/drop_caches
-  
+ lvs --segment
+echo 1>/sys/class/block/sdc/device/rescan    -->replace disk (sdc) which disk need to recsan
+mv /opt/Tanium /appbin/Tanium -f  --to fourcefully meve
+ln -s /appbin/Tanium /opt/Tanium  --to create soft link
+ln -s src  dest -->-to create hard link
